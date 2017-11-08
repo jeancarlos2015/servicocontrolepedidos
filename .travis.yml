@@ -14,7 +14,7 @@ addons:
   sonarcloud:
     organization: "penaspenas123"
     token:
-      secure: "$SONARPASSWORD1"
+      secure: "$SONAR_KEY_PEDIDOS"
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 deploy:
