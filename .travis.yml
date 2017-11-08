@@ -20,5 +20,5 @@ script:
 deploy:
  provider: heroku
  api-key:
-  secure: $API_KEY_HEROKU
+  secure: $HEROKU_PASSWORD1
  app: servicocontrolepedidos
