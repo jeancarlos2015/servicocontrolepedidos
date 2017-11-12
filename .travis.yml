@@ -16,7 +16,8 @@ addons:
     token:
       secure: "$SONAR_KEY_PEDIDOS"
 script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+  #- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+  - sonar-scanner
 deploy:
  provider: heroku
  api-key:
