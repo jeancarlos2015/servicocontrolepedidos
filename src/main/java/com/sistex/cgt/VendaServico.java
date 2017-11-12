@@ -17,13 +17,11 @@ public interface VendaServico {
 
     Venda getById(Long id);
 
-    Venda getByRg(String rg);
-
     Venda update(Venda venda);
 
     void delete(Long id);
 
     Venda save(Venda venda);
     
-    List<Venda> findAllByNome(String nome);
+    List<Venda> findAllByNomeProduto(String nomeproduto);
 }

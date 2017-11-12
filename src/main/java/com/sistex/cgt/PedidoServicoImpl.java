@@ -21,18 +21,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class PedidoServicoImpl implements PedidoServico {
 
-    private Fabrica fabrica = Fabrica.make(PEDIDO);
+    private final Fabrica fabrica = Fabrica.make(PEDIDO);
+    @Autowired
     private PedidoRepositorio pedidoRepositorio;
 
-    @Autowired
-    public void setPedidoRepositorio(PedidoRepositorio pedidoRepositorio) {
-        this.pedidoRepositorio = pedidoRepositorio;
-    }
-
+    
     @Override
     public List<Pedido> listAll() {
-        @SuppressWarnings("unchecked")
-        List<Pedido> lista = new ArrayList();
+        List<Pedido> lista = new ArrayList<>();
         pedidoRepositorio.findAll().forEach(lista::add);
         return lista;
     }

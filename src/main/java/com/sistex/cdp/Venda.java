@@ -19,36 +19,11 @@ public class Venda{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long idvenda;
-    private String nomeProduto;
-    private String marca;
-    private Float custoMensal;
-    private Float totalVenda;
-    private Integer qtVendas;
-
-    public Integer getQtVendas() {
-        return qtVendas;
-    }
-
-    public void setQtVendas(Integer qtVendas) {
-        this.qtVendas = qtVendas;
-    }
-    public String getNomeProduto() {
-        return nomeProduto;
-    }
-
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-   
     
+   private String nomeproduto;
+    private String marcaproduto;
+    private Integer quantidade;
+    private Float precounidade;
 
     public Long getIdvenda() {
         return idvenda;
@@ -58,24 +33,38 @@ public class Venda{
         this.idvenda = idvenda;
     }
 
+    public String getNomeproduto() {
+        return nomeproduto;
+    }
+
+    public void setNomeproduto(String nomeproduto) {
+        this.nomeproduto = nomeproduto;
+    }
+
+    public String getMarcaproduto() {
+        return marcaproduto;
+    }
+
+    public void setMarcaproduto(String marcaproduto) {
+        this.marcaproduto = marcaproduto;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Float getPrecounidade() {
+        return precounidade;
+    }
+
+    public void setPrecounidade(Float precounidade) {
+        this.precounidade = precounidade;
+    }
+
     
-
-    public Float getCustoMensal() {
-        return custoMensal;
-    }
-
-    public void setCustoMensal(Float custoMensal) {
-        this.custoMensal = custoMensal;
-    }
-
-    public Float getTotalVenda() {
-        return totalVenda;
-    }
-
-    public void setTotalVenda(Float totalVenda) {
-        this.totalVenda = totalVenda;
-    }
-
-   
 
 }

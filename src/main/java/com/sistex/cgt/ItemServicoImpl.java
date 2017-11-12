@@ -22,16 +22,13 @@ import org.springframework.stereotype.Service;
 public class ItemServicoImpl implements ItemServico {
 
     private final Fabrica fabrica = Fabrica.make(ITEM);
+    @Autowired
     private ItemRepositorio itemRepositorio;
 
-    @Autowired
-    public void setItemRepositorio(ItemRepositorio itemRepositorio) {
-        this.itemRepositorio = itemRepositorio;
-    }
 
     @Override
     public List<Item> listAll() {
-        List<Item> lista = new ArrayList();
+        List<Item> lista = new ArrayList<>();
 
         itemRepositorio.findAll().forEach(lista::add);
         return lista;

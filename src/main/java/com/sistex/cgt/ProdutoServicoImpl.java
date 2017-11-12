@@ -22,16 +22,13 @@ import org.springframework.stereotype.Service;
 public class ProdutoServicoImpl implements ProdutoServico {
 
     private final Fabrica fabrica = Fabrica.make(PRODUTO);
+    @Autowired
     private ProdutoRepositorio produtoRepositorio;
 
-    @Autowired
-    public void setProdutoRepositorio(ProdutoRepositorio produtoRepositorio) {
-        this.produtoRepositorio = produtoRepositorio;
-    }
 
     @Override
     public List<Produto> listAll() {
-        List<Produto> lista = new ArrayList();
+        List<Produto> lista = new ArrayList<>();
         produtoRepositorio.findAll().forEach(lista::add);
         return lista;
     }
