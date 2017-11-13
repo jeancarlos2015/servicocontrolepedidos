@@ -20,11 +20,11 @@ public class Venda{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long idvenda;
     
-   private String nomeproduto;
+    private String nomeproduto;
     private String marcaproduto;
     private Integer quantidade;
     private Float precounidade;
-
+    private Long idproduto;
     public Long getIdvenda() {
         return idvenda;
     }
@@ -63,6 +63,14 @@ public class Venda{
 
     public void setPrecounidade(Float precounidade) {
         this.precounidade = precounidade;
+    }
+
+    public Long getIdproduto() {
+        return idproduto;
+    }
+
+    public void setIdproduto(Long idproduto) {
+        this.idproduto = idproduto;
     }
 
     
