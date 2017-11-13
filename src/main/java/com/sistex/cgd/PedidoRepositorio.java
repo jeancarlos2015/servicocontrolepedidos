@@ -11,11 +11,13 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author jean
  */
+@Repository
 public interface PedidoRepositorio extends CrudRepository<Pedido, Long>{
     @Modifying
     @Query("update Pedido pedido set pedido.datapedido = :datapedido, "
