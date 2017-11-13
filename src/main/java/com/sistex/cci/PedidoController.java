@@ -65,7 +65,7 @@ public class PedidoController {
         return pedidoService.listAll();
     }
 
-    @RequestMapping(value = "/listar/{datapedido}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{datapedido}",method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Pedido> listPedidosDataPedido(@PathVariable("datapedido") String dataPedido) {

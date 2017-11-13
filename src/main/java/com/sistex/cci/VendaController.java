@@ -62,7 +62,7 @@ public class VendaController {
         return vendaServico.listAll();
     }
     
-    @RequestMapping(value = "/{nome}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{nome}", method = RequestMethod.GET)
     @ResponseBody
     public List<Venda> listVendaesNome(@PathVariable("nome") String nome) {
         return vendaServico.findAllByNomeProduto(nome);

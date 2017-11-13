@@ -65,7 +65,7 @@ public class ItemController {
         return itemService.listAll();
     }
 
-    @RequestMapping(value = "/listar/{status}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{status}",method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Item> listItemsDataItem(@PathVariable("status") String status) {
