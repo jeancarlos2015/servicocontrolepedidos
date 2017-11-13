@@ -67,7 +67,7 @@ public class ProdutoController {
         return produtoService.listAll();
     }
 
-    @RequestMapping(value = "/{nome}",method = RequestMethod.GET)
+    @RequestMapping(value = "/listar/{nome}",method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Produto> listProdutosNome(@PathVariable("nome") String nome) {
