@@ -56,10 +56,13 @@ public class ItemServicoImpl implements ItemServico {
     @Override
     public Item update(Item item) {
         if (itemRepositorio.exists(item.getIditem())) {
-            itemRepositorio.update(item.getCategoria(),
-                    item.getMarca(),
-                    item.getPreco(),
-                    item.getIditem());
+            itemRepositorio.update(item.getNome(),
+            					   item.getPreco(),
+            					   item.getQuantidade(),
+            					   item.getCategoria(),
+            					   item.getMarca(),
+            					   item.getDescricao(),
+            					   item.getIditem());
             return itemRepositorio.findOne(item.getIditem());
         }
         return fabrica.criaItem();

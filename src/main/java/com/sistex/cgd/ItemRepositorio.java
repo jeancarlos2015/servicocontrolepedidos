@@ -21,16 +21,22 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ItemRepositorio extends CrudRepository<Item, Long> {
 
-   @Modifying
-    @Query("update Item item set item.categoria = :categoria, "
-            + "item.marca = :marca,"
-            + "item.preco = :preco"
-            + " where item.id = :id")
-    void update(@Param("categoria") String categoria,
-            @Param("marca") String marca,
-            @Param("preco") Float preco,
-            @Param("id") Long id);
+	 @Modifying
+	    @Query("update Item i set i.nome = :nome, "
+	            + "i.preco = :preco,"
+	            + "i.quantidade = :quantidade,"
+	            + "i.descricao = :descricao,"
+	            + "i.categoria = :categoria,"
+	            + "i.marca = :marca"
+	            + " where i.id = :id")
+	    void update(@Param("nome") String nome,
+	            @Param("preco") Float preco,
+	            @Param("quantidade") Integer quantidade,
+	            @Param("categoria") String categoria,
+	            @Param("marca") String marca,
+	            @Param("descricao") String descricao,
+	            @Param("id") Long id);
 
-    @Query("SELECT item FROM Item item WHERE item.nome like %:nome%")
+    @Query("SELECT item FROM Item item WHERE item.nome like %:nome% or item.marca like %:nome%")
     List<Item> findAllByNome(@Param("nome") String nome);
 }

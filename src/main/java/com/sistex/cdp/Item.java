@@ -14,16 +14,15 @@ import javax.persistence.Id;
  *
  * @author jean
  */
+
 @Entity
-public class Item {
+public class Item extends ProdutoAbstract{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long iditem=1L;
     private String marca;
     private String categoria;
-    private Float preco;
-    private String nome;
     private Long idproduto=1L;
     public Long getIditem() {
         return iditem;
@@ -49,22 +48,7 @@ public class Item {
         this.categoria = categoria;
     }
 
-    public Float getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Float preco) {
-        this.preco = preco;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
+   
     public Long getIdproduto() {
         return idproduto;
     }
