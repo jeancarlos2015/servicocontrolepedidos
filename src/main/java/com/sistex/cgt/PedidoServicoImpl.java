@@ -66,6 +66,11 @@ public class PedidoServicoImpl implements PedidoServico {
         return pedidoRepositorio.findAllByDatapedido(dataPedido);
     }
 
+    @Override
+    public boolean exist(Long id) {
+        return pedidoRepositorio.exists(id);
+    }
+
     /**
      * @param pedidoRepositorio the pedidoRepositorio to set
      */

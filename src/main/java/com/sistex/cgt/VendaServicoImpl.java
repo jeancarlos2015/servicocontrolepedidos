@@ -61,5 +61,10 @@ public class VendaServicoImpl implements VendaServico{
         vendaRepositorio.findAllByNomeProduto(nomeproduto).forEach(vendas::add);
         return vendas;
     }
+
+    @Override
+    public boolean exist(Long id) {
+        return vendaRepositorio.exists(id);
+    }
     
 }

@@ -70,4 +70,9 @@ public class ProdutoServicoImpl implements ProdutoServico {
         return produtoRepositorio.findAllByNome(nome);
     }
 
+    @Override
+    public boolean exist(Long id) {
+        return produtoRepositorio.exists(id);
+    }
+
 }

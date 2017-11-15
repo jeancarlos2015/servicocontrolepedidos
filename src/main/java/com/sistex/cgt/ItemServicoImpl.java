@@ -72,4 +72,9 @@ public class ItemServicoImpl implements ItemServico {
     public List<Item> findAllByStatus(String status) {
         return itemRepositorio.findAllByNome(status);
     }
+
+    @Override
+    public boolean exist(Long id) {
+        return itemRepositorio.exists(id);
+    }
 }

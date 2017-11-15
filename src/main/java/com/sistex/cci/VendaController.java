@@ -31,15 +31,17 @@ public class VendaController {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void excluir(@PathVariable("id") Long id) {
+    public Boolean excluir(@PathVariable("id") Long id) {
         vendaServico.delete(id);
+        return !vendaServico.exist(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Venda cadastrar(@RequestBody Venda venda) {
-        return vendaServico.save(venda);
+    public Boolean cadastrar(@RequestBody Venda venda) {
+        Venda novo = vendaServico.save(venda);
+        return vendaServico.exist(novo.getIdvenda());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

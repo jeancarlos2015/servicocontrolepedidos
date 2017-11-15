@@ -26,4 +26,6 @@ public interface PedidoServico {
     Pedido update(Pedido pedido);
 
     List<Pedido> findAllByDatapedido(String datapedido);
+    
+    boolean exist(Long id);
 }

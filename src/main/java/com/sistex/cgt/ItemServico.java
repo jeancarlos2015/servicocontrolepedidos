@@ -24,4 +24,6 @@ public interface ItemServico {
     Item update(Item item);
 
     List<Item> findAllByStatus(String status);
+    
+    boolean exist(Long id);
 }

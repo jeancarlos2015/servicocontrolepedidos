@@ -27,4 +27,6 @@ public interface ProdutoServico {
     Produto update(Produto produto);
 
     List<Produto> findAllByNome(String nome);
+    
+    boolean exist(Long id);
 }

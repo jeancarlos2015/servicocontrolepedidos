@@ -24,4 +24,6 @@ public interface VendaServico {
     Venda save(Venda venda);
     
     List<Venda> findAllByNomeProduto(String nomeproduto);
+    
+    boolean exist(Long id);
 }

@@ -25,24 +25,24 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 @RequestMapping("/pedido")
 public class PedidoController {
+    @Autowired
     private PedidoServico pedidoService;
 
-    @Autowired
-    public void setPedidoService(PedidoServico pedidoService) {
-        this.pedidoService = pedidoService;
-    }
-
+    
+    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void excluir(@PathVariable("id") Long id) {
+    public Boolean excluir(@PathVariable("id") Long id) {
         pedidoService.delete(id);
+        return !pedidoService.exist(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Pedido cadastrar(@RequestBody Pedido pedido) {
-        return pedidoService.save(pedido);
+    public Boolean cadastrar(@RequestBody Pedido pedido) {
+        Pedido novo = pedidoService.save(pedido);
+        return pedidoService.exist(novo.getIdpedido());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

@@ -25,24 +25,23 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 @RequestMapping("/item")
 public class ItemController {
+    @Autowired
     private ItemServico itemService;
 
-    @Autowired
-    public void setItemService(ItemServico itemService) {
-        this.itemService = itemService;
-    }
-
+   
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void excluir(@PathVariable("id") Long id) {
+    public Boolean excluir(@PathVariable("id") Long id) {
         itemService.delete(id);
+        return itemService.exist(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Item cadastrar(@RequestBody Item item) {
-        return itemService.save(item);
+    public Boolean cadastrar(@RequestBody Item item) {
+        Item novo = itemService.save(item);
+        return itemService.exist(novo.getIditem());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
