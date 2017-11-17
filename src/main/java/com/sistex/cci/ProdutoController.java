@@ -73,7 +73,7 @@ public class ProdutoController {
         List<Produto> resultList = new ArrayList<>();
         for(Produto produto:produtoService.listAll()){
             resultList.add(produto);
-            if(tam==0){
+            if(tam==-1){
                 break;
             }
             tam--;
