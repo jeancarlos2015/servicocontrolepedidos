@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,7 @@ public class VendaController {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
+    @CrossOrigin
     public Boolean excluir(@PathVariable("id") Long id) {
         vendaServico.delete(id);
         return !vendaServico.exist(id);
@@ -44,11 +46,11 @@ public class VendaController {
         return vendaServico.exist(novo.getIdvenda());
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Venda alterar(@PathVariable("id") Long id, @RequestBody Venda venda) {
-        venda.setIdvenda(id);
+    @CrossOrigin
+    public Venda alterar(@RequestBody Venda venda) {
         return vendaServico.update(venda);
     }
 
