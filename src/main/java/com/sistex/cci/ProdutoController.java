@@ -7,6 +7,7 @@ package com.sistex.cci;
 
 import com.sistex.cdp.Produto;
 import com.sistex.cgt.ProdutoServico;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -64,7 +65,19 @@ public class ProdutoController {
     public List<Produto> listProdutos() {
         return produtoService.listAll();
     }
-
+    @RequestMapping(value="size/{tam}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Produto> listProdutosCount(@PathVariable("tam") Integer tam) {
+        List<Produto> resultList = new ArrayList<>();
+        for(Produto produto:produtoService.listAll()){
+            resultList.add(produto);
+            if(tam==0){
+                break;
+            }
+            tam--;
+        }
+        return resultList;
+    }
     @RequestMapping(value = "/listar/{nome}",method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
