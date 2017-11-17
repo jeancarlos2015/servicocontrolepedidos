@@ -8,6 +8,7 @@ package com.sistex.cci;
 import com.sistex.cdp.Item;
 import com.sistex.cgt.ItemServico;
 import java.util.List;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -25,10 +26,18 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 @RequestMapping("/item")
 public class ItemController {
+
     @Autowired
     private ItemServico itemService;
 
-   
+    @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
+    public void corsHeaders(HttpServletResponse response) {
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        response.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, x-requested-with");
+        response.addHeader("Access-Control-Max-Age", "3600");
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public Boolean excluir(@PathVariable("id") Long id) {
@@ -64,7 +73,7 @@ public class ItemController {
         return itemService.listAll();
     }
 
-    @RequestMapping(value = "/listar/{status}",method = RequestMethod.GET)
+    @RequestMapping(value = "/listar/{status}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Item> listItemsDataItem(@PathVariable("status") String status) {
