@@ -9,7 +9,6 @@ import com.sistex.cdp.Produto;
 import com.sistex.cgt.ProdutoServico;
 import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -31,13 +30,7 @@ public class ProdutoController {
     @Autowired
     private ProdutoServico produtoService;
 
-    @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
-    public void corsHeaders(HttpServletResponse response) {
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-        response.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, x-requested-with");
-        response.addHeader("Access-Control-Max-Age", "3600");
-    }
+    
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
