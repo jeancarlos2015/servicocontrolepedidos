@@ -55,12 +55,7 @@ public class ProdutoServicoImpl implements ProdutoServico {
     @Override
     public Produto update(Produto produto) {
         if (produtoRepositorio.exists(produto.getIdproduto())) {
-            produtoRepositorio.update(produto.getNome(),
-                    produto.getPreco(),
-                    produto.getQuantidade(),
-                    produto.getDescricao(),
-                    produto.getIdproduto());
-            return produtoRepositorio.findOne(produto.getIdproduto());
+              return produtoRepositorio.save(produto);
         }
         return fabrica.criaProduto();
     }

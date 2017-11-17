@@ -7,6 +7,9 @@ package com.sistex.cgt;
 
 import com.sistex.cdp.Venda;
 import com.sistex.cgd.VendaRepositorio;
+import com.sistex.util.Fabrica;
+import com.sistex.util.Tipo;
+import static com.sistex.util.Tipo.VENDA;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,7 @@ import org.springframework.stereotype.Service;
 public class VendaServicoImpl implements VendaServico{
     @Autowired
     private VendaRepositorio vendaRepositorio;
+    private Fabrica fabrica = Fabrica.make(VENDA);
     @Override
     public List<Venda> listAll() {
         List<Venda> vendas = new ArrayList<>();
@@ -35,12 +39,10 @@ public class VendaServicoImpl implements VendaServico{
   
     @Override
     public Venda update(Venda venda) {
-        vendaRepositorio.update(venda.getNomeproduto(), 
-                                venda.getQuantidade(), 
-                                venda.getMarcaproduto(), 
-                                venda.getPrecounidade(), 
-                                venda.getIdvenda());
-        return vendaRepositorio.findOne(venda.getIdvenda());
+       if(exist(venda.getIdvenda())){
+           return vendaRepositorio.save(venda);
+       }
+       return fabrica.criaVenda();
     }
 
     @Override

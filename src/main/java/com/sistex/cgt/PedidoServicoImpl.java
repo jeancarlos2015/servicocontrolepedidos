@@ -55,8 +55,7 @@ public class PedidoServicoImpl implements PedidoServico {
     @Override
     public Pedido update(Pedido pedido) {
         if (pedidoRepositorio.exists(pedido.getIdpedido())) {
-            pedidoRepositorio.update(pedido.getDatapedido(), pedido.getPrecototal(), pedido.getStatus(), pedido.getIdpedido());
-            return pedidoRepositorio.findOne(pedido.getIdpedido());
+            return pedidoRepositorio.save(pedido);
         }
         return fabrica.criaPedido();
     }

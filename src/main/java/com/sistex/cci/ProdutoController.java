@@ -47,12 +47,11 @@ public class ProdutoController {
         return produtoService.exist(novo.getIdproduto());
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     @CrossOrigin
-    public Produto alterar(@PathVariable("id") Long id, @RequestBody Produto produto) {
-        produto.setIdproduto(id);
+    public Produto alterar(@RequestBody Produto produto) {
         return produtoService.update(produto);
     }
 

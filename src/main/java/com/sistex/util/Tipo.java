@@ -12,5 +12,6 @@ package com.sistex.util;
 public enum Tipo {
     PEDIDO,
     PRODUTO,
-    ITEM
+    ITEM,
+    VENDA
 }

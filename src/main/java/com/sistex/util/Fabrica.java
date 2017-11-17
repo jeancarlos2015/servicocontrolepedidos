@@ -8,6 +8,7 @@ package com.sistex.util;
 import com.sistex.cdp.Item;
 import com.sistex.cdp.Pedido;
 import com.sistex.cdp.Produto;
+import com.sistex.cdp.Venda;
 
 /**
  *
@@ -22,6 +23,8 @@ public class Fabrica {
                 return new FabricaProduto();
             case ITEM:
                 return new FabricaItem();
+            case VENDA:
+                return new FabricaVenda();
             default:
                 return new Fabrica();
         }
@@ -35,6 +38,10 @@ public class Fabrica {
         return null;
     }
     public Pedido criaPedido(){
+        return null;
+    }
+    
+    public Venda criaVenda(){
         return null;
     }
 }

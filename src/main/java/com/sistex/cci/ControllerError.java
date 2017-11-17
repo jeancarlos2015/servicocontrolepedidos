@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
  
 @RestController(value = "/")
-public class TestController {
+public class ControllerError {
  
     @RequestMapping
     public String get() {

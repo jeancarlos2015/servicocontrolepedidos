@@ -6,7 +6,6 @@
 package com.sistex.util;
 
 import com.sistex.cdp.Venda;
-import com.sistex.util.Fabrica;
 
 /**
  *
