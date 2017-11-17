@@ -35,9 +35,8 @@ public class ProdutoController {
     @CrossOrigin
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public Boolean excluir(@PathVariable("id") Long id) {
+    public void excluir(@PathVariable("id") Long id) {
         produtoService.delete(id);
-        return !produtoService.exist(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
