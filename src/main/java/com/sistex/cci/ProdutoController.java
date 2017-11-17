@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class ProdutoController {
     private ProdutoServico produtoService;
 
     
-    
+    @CrossOrigin
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public Boolean excluir(@PathVariable("id") Long id) {
@@ -50,6 +51,7 @@ public class ProdutoController {
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
+    @CrossOrigin
     public Produto alterar(@PathVariable("id") Long id, @RequestBody Produto produto) {
         produto.setIdproduto(id);
         return produtoService.update(produto);
