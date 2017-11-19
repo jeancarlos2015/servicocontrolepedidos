@@ -5,6 +5,7 @@
  */
 package com.sistex.util;
 
+import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Item;
 import com.sistex.cdp.Pedido;
 import com.sistex.cdp.Produto;
@@ -40,7 +41,9 @@ public class Fabrica {
     public Pedido criaPedido(){
         return null;
     }
-    
+    public Cliente criaCliente(){
+        return null;
+    }
     public Venda criaVenda(){
         return null;
     }
