@@ -17,22 +17,6 @@ import org.springframework.data.repository.query.Param;
  */
 public interface ClienteRepositorio extends CrudRepository<Cliente, Long> {
 
-//    @Modifying
-//    @Query("update Cliente cli set cli.cpf = :cpf, "
-//            + "cli.datanascimento = :datanascimento,"
-//            + "cli.email = :email,"
-//            + "cli.endereco = :endereco,"
-//            + "cli.nome = :nome,"
-//            + "cli.telefone = :telefone"
-//            + " where cli.id = :id")
-//    void update(@Param("cpf") String cpf,
-//            @Param("datanascimento") String datanascimento,
-//            @Param("email") String email,
-//            @Param("endereco") String endereco,
-//            @Param("nome") String nome,
-//            @Param("telefone") String telefone,
-//            @Param("id") Long id);
-
     @Query("SELECT CASE WHEN COUNT(cli) > 0 THEN true ELSE false END FROM Cliente cli WHERE cli.cpf = :cpf")
     boolean exist(@Param("cpf") String cpf);
 

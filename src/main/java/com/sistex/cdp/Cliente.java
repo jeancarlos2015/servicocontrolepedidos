@@ -15,22 +15,22 @@ import javax.persistence.Id;
  * @author jean
  */
 @Entity
-public class Cliente{
+public class Cliente {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idcliente;
-    protected String nome="";
+    private String nome = "";
 
-    protected String telefone="";
+    private String telefone = "";
 
-    protected String email="";
+    private String email = "";
 
-    protected String endereco="";
+    private String endereco = "";
 
-    protected String datanascimento="";
+    private String datanascimento = "";
     private String cpf;
 
     /**
@@ -64,14 +64,53 @@ public class Cliente{
     public void setIdcliente(Long idcliente) {
         this.idcliente = idcliente;
     }
-    
-    
-    public boolean isEmpty(){
-        return nome.equals("") || 
-                telefone.equals("") ||
-                email.equals("") ||
-                endereco.equals("") ||
-                datanascimento.equals("") ||
-                cpf.equals("");
+
+    public boolean isEmpty() {
+        return nome.equals("")
+                || telefone.equals("")
+                || email.equals("")
+                || endereco.equals("")
+                || datanascimento.equals("")
+                || cpf.equals("");
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getDatanascimento() {
+        return datanascimento;
+    }
+
+    public void setDatanascimento(String datanascimento) {
+        this.datanascimento = datanascimento;
     }
 }

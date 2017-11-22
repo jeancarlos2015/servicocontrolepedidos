@@ -26,6 +26,8 @@ public class Fabrica {
                 return new FabricaItem();
             case VENDA:
                 return new FabricaVenda();
+            case CLIENTE:
+                return new FabricaCliente();
             default:
                 return new Fabrica();
         }

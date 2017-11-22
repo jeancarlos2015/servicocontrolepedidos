@@ -18,7 +18,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author jean
  */
-@Repository
+
 public interface ProdutoRepositorio extends CrudRepository<Produto, Long>{
 
     @Query("SELECT prod FROM Produto prod WHERE prod.nome like %:nome%")
