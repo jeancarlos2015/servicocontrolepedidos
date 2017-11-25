@@ -67,7 +67,10 @@ public class ClienteServicoImpl implements ClienteServico {
 
     @Override
     public Cliente getByCpf(String cpf) {
-        return clienteRepositorio.findByCpf(cpf);
+        if(clienteRepositorio.exist(cpf)){
+            return clienteRepositorio.findByCpf(cpf);
+        }
+        return fabrica.criaCliente();
     }
 
     @Override

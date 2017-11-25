@@ -20,7 +20,7 @@ public interface ClienteRepositorio extends CrudRepository<Cliente, Long> {
     @Query("SELECT CASE WHEN COUNT(cli) > 0 THEN true ELSE false END FROM Cliente cli WHERE cli.cpf = :cpf")
     boolean exist(@Param("cpf") String cpf);
 
-    @Query("SELECT cli FROM Cliente cli WHERE cli.cpf= :cpf")
+    @Query("SELECT cli FROM Cliente cli WHERE cli.cpf = :cpf")
     Cliente findByCpf(@Param("cpf") String cpf);
 
     @Query("SELECT cli FROM Cliente cli WHERE cli.nome like %:nome%")
