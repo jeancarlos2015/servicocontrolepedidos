@@ -18,12 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
  * @author jean
  */
-@Controller
+@RestController
 @RequestMapping("/cliente")
 public class ClienteController {
 
@@ -54,10 +55,10 @@ public class ClienteController {
         return clienteService.update(cliente);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{cpf}", method = RequestMethod.GET)
     @ResponseBody
-    public Cliente buscarCliente(@PathVariable("id") String id) {
-        return clienteService.getById(Long.valueOf(id));
+    public Cliente buscarCliente(@PathVariable("cpf") String cpf) {
+        return clienteService.getByCpf(cpf);
     }
 
     @RequestMapping(method = RequestMethod.GET)
