@@ -12,7 +12,7 @@ before_script:
     - psql -c "ALTER USER postgres WITH PASSWORD 'ifes'" -d template1;
 addons:
   sonarcloud:
-    organization: "usuariospedidos1"
+    organization: "controlepedidos1"
     token:
       secure: "$SONAR_KEY"
 script:
