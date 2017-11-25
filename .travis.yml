@@ -16,8 +16,8 @@ addons:
     token:
       secure: "$SONAR_KEY"
 script:
-    - mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.4.0.905:sonar
-    #- sonar-scanner
+    #- mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.4.0.905:sonar
+    - sonar-scanner
    #- mvn clean install
    #- mvn sonar:sonar
 deploy:
