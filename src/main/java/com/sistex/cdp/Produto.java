@@ -5,6 +5,7 @@
  */
 package com.sistex.cdp;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,7 @@ import javax.persistence.Id;
  * @author jean
  */
 @Entity
-public class Produto extends ProdutoAbstract{
+public class Produto extends ProdutoAbstract implements Serializable{
 
     
     @Id

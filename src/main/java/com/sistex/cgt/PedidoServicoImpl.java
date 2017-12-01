@@ -10,6 +10,8 @@ import com.sistex.cgd.PedidoRepositorio;
 import com.sistex.util.Fabrica;
 import static com.sistex.util.Tipo.PEDIDO;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +42,9 @@ public class PedidoServicoImpl implements PedidoServico {
 
     @Override
     public Pedido save(Pedido pedido) {
-
+        Calendar cal = GregorianCalendar.getInstance(); 
+        String datapedido =""+ cal.get(Calendar.YEAR);
+        pedido.setDatapedido(datapedido);
         return pedidoRepositorio.save(pedido);
 
     }
