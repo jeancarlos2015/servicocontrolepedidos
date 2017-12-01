@@ -67,5 +67,13 @@ public class Pedido implements Serializable {
     public void setIdcliente(Long idcliente) {
         this.idcliente = idcliente;
     }
+
+    public Long getIdproduto() {
+        return idproduto;
+    }
+
+    public void setIdproduto(Long idproduto) {
+        this.idproduto = idproduto;
+    }
     
 }
