@@ -22,11 +22,11 @@ public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idpedido = 1L;
-    private Long idproduto= 1L;
     private Float precototal;
     private String status;
     private String datapedido;
     private Long idcliente=1L;
+    private Long idproduto= 1L;
     public Long getIdpedido() {
         return idpedido;
     }
