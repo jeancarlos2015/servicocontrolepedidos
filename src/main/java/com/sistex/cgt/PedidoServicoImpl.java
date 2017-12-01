@@ -9,6 +9,8 @@ import com.sistex.cdp.Pedido;
 import com.sistex.cgd.PedidoRepositorio;
 import com.sistex.util.Fabrica;
 import static com.sistex.util.Tipo.PEDIDO;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -27,7 +29,6 @@ public class PedidoServicoImpl implements PedidoServico {
     @Autowired
     private PedidoRepositorio pedidoRepositorio;
 
-    
     @Override
     public List<Pedido> listAll() {
         List<Pedido> lista = new ArrayList<>();
@@ -42,8 +43,9 @@ public class PedidoServicoImpl implements PedidoServico {
 
     @Override
     public Pedido save(Pedido pedido) {
-        Calendar cal = GregorianCalendar.getInstance(); 
-        String datapedido =""+ cal.get(Calendar.YEAR);
+        final DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        final Calendar cal = Calendar.getInstance();
+        String datapedido = df.format(cal.getTime());
         pedido.setDatapedido(datapedido);
         return pedidoRepositorio.save(pedido);
 
