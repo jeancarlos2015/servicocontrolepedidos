@@ -21,12 +21,12 @@ import javax.persistence.Id;
 public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idpedido = 1L;
+    private Long idpedido = 0L;
     private Float precototal;
     private String status;
     private String datapedido;
-    private Long idcliente=1L;
-    private Long idproduto= 1L;
+    private Long idcliente=0L;
+    private Long idproduto= 0L;
     public Long getIdpedido() {
         return idpedido;
     }

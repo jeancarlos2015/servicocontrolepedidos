@@ -1,4 +1,4 @@
-Feature: eu, como item ou funcionario preciso registrar o item de um produto
+Feature: eu, como funcionario preciso registrar o item de um produto
 
   Scenario: cadastro do item
     Given I have a plate that is composed by spaghetti by price 10
