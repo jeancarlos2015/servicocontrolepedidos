@@ -41,9 +41,8 @@ public class ClienteController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Boolean cadastrar(@RequestBody Cliente cliente) {
-        Cliente novo = clienteService.save(cliente);
-        return clienteService.exist(novo.getIdcliente());
+    public Cliente cadastrar(@RequestBody Cliente cliente) {
+        return clienteService.save(cliente);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
