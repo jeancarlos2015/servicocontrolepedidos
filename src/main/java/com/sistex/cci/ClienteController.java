@@ -52,7 +52,15 @@ public class ClienteController {
     public Cliente alterar(@RequestBody Cliente cliente) {
         return clienteService.update(cliente);
     }
-
+    
+    @RequestMapping(value = "/existe/{id}",method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    @CrossOrigin
+    public Boolean existe(@PathVariable("id") Long id) {
+        return clienteService.exist(id);
+    }
+    
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Cliente buscarCliente(@PathVariable("id") Long id) {

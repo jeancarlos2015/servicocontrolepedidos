@@ -44,9 +44,8 @@ public class PedidoController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Boolean cadastrar(@RequestBody Pedido pedido) {
-        Pedido novo = pedidoService.save(pedido);
-        return pedidoService.exist(novo.getIdpedido());
+    public Pedido cadastrar(@RequestBody Pedido pedido) {
+        return pedidoService.save(pedido);
     }
 
     @RequestMapping(method = RequestMethod.PUT)

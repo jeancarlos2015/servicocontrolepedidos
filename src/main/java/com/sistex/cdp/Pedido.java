@@ -27,6 +27,7 @@ public class Pedido implements Serializable {
     private String datapedido;
     private Long idcliente=0L;
     private Long idproduto= 0L;
+    private String descricao;
     public Long getIdpedido() {
         return idpedido;
     }
@@ -74,6 +75,14 @@ public class Pedido implements Serializable {
 
     public void setIdproduto(Long idproduto) {
         this.idproduto = idproduto;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
     
 }
