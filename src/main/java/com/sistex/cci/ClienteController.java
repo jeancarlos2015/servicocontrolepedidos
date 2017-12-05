@@ -61,10 +61,10 @@ public class ClienteController {
         return clienteService.exist(id);
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{cpf}", method = RequestMethod.GET)
     @ResponseBody
-    public Cliente buscarCliente(@PathVariable("id") Long id) {
-        return clienteService.getById(id);
+    public Cliente buscarCliente(@PathVariable("cpf") String cpf) {
+        return clienteService.getByCpf(cpf);
     }
 
     @RequestMapping(method = RequestMethod.GET)
