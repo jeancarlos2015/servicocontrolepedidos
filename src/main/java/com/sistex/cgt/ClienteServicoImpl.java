@@ -83,4 +83,9 @@ public class ClienteServicoImpl implements ClienteServico {
         return clienteRepositorio.exists(id);
     }
 
+    @Override
+    public boolean exist(String cpf) {
+        return clienteRepositorio.exist(cpf);
+    }
+
 }

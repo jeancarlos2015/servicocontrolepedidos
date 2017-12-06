@@ -26,6 +26,8 @@ public interface ClienteServico {
     
     boolean exist(Long id);
     
+    boolean exist(String cpf);
+    
     Cliente update(Cliente cliente);
 
     List<Cliente> findAllByNome(String nome);
