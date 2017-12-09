@@ -35,7 +35,7 @@ public class ClienteController {
     @CrossOrigin
     public Boolean excluir(@PathVariable("id") Long id) {
         clienteService.delete(id);
-        return clienteService.exist(id);
+        return !clienteService.exist(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
