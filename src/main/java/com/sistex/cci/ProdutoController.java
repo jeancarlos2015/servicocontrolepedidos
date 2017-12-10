@@ -74,11 +74,11 @@ public class ProdutoController {
     public List<Produto> listProdutosCount(@PathVariable("tam") Integer tam) {
         List<Produto> resultList = new ArrayList<>();
         for(Produto produto:produtoService.listAll()){
-            resultList.add(produto);
-            if(tam==-1){
+            if(resultList.size()<tam){
+                resultList.add(produto);
+            }else{
                 break;
             }
-            tam--;
         }
         return resultList;
     }

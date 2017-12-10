@@ -7,6 +7,8 @@ package com.sistex.cci;
 
 import com.sistex.cdp.Pedido;
 import com.sistex.cgt.PedidoServico;
+import com.sistex.util.Fabrica;
+import static com.sistex.util.Tipo.PEDIDO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +33,7 @@ public class PedidoController {
     @Autowired
     private PedidoServico pedidoService;
 
-    
+    private Fabrica fabrica  = Fabrica.make(PEDIDO);
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
@@ -68,13 +70,14 @@ public class PedidoController {
         return pedidoService.listAll();
     }
 
-//    @RequestMapping(value = "/listar/{datapedido}",method = RequestMethod.GET)
-//    @ResponseStatus(HttpStatus.OK)
-//    @ResponseBody
-//    public List<Pedido> listPedidosDataPedido(@PathVariable("datapedido") String dataPedido) {
-//        return pedidoService.findAllByDatapedido(dataPedido);
-//    }
-//    
+    @RequestMapping(value = "/listaratuais",method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Pedido> listPedidosDataPedido() {
+        Pedido pedido = fabrica.criaPedido();
+        return pedidoService.findAllByDatapedido(pedido.getDatapedido());
+    }
+    
     @RequestMapping(value = "/listar/id/{idcliente}",method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
