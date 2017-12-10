@@ -68,10 +68,24 @@ public class PedidoController {
         return pedidoService.listAll();
     }
 
-    @RequestMapping(value = "/listar/{datapedido}",method = RequestMethod.GET)
+//    @RequestMapping(value = "/listar/{datapedido}",method = RequestMethod.GET)
+//    @ResponseStatus(HttpStatus.OK)
+//    @ResponseBody
+//    public List<Pedido> listPedidosDataPedido(@PathVariable("datapedido") String dataPedido) {
+//        return pedidoService.findAllByDatapedido(dataPedido);
+//    }
+//    
+    @RequestMapping(value = "/listar/id/{idcliente}",method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Pedido> listPedidosDataPedido(@PathVariable("datapedido") String dataPedido) {
-        return pedidoService.findAllByDatapedido(dataPedido);
+    public List<Pedido> listPedidosIdCliente(@PathVariable("idcliente") Long idcliente) {
+        return pedidoService.findAllByIdCliente(idcliente);
+    }
+    
+    @RequestMapping(value = "/listar/{cpf}",method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Pedido> listPedidosCpf(@PathVariable("cpf") String cpf) {
+        return pedidoService.findAllByCpf(cpf);
     }
 }

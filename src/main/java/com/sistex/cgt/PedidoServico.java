@@ -27,5 +27,9 @@ public interface PedidoServico {
 
     List<Pedido> findAllByDatapedido(String datapedido);
     
+    List<Pedido> findAllByIdCliente(Long idCliente);
+    
+    List<Pedido> findAllByCpf(String cpf);
+    
     boolean exist(Long id);
 }

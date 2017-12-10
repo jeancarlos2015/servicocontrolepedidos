@@ -21,4 +21,11 @@ public interface PedidoRepositorio extends CrudRepository<Pedido, Long>{
 
     @Query("SELECT pedido FROM Pedido pedido WHERE pedido.datapedido like %:datapedido%")
     List<Pedido> findAllByDatapedido(@Param("datapedido") String datapedido);
+    
+    @Query("SELECT pedido FROM Pedido pedido WHERE pedido.idcliente = :idcliente")
+    List<Pedido> findAllByIdCliente(@Param("idcliente") Long idcliente);
+    
+    
+    @Query("SELECT pedido FROM Pedido pedido WHERE pedido.cpf = :cpf")
+    List<Pedido> findAllByCpf(@Param("cpf") String cpf);
 }

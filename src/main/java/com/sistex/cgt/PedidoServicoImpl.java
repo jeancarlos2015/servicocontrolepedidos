@@ -76,6 +76,16 @@ public class PedidoServicoImpl implements PedidoServico {
         return pedidoRepositorio.exists(id);
     }
 
+    @Override
+    public List<Pedido> findAllByIdCliente(Long idCliente) {
+        return pedidoRepositorio.findAllByIdCliente(idCliente);
+    }
+
+    @Override
+    public List<Pedido> findAllByCpf(String cpf) {
+        return pedidoRepositorio.findAllByCpf(cpf);
+    }
+
     /**
      * @param pedidoRepositorio the pedidoRepositorio to set
      */
