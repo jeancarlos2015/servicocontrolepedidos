@@ -65,7 +65,10 @@ public class ClienteController {
     @RequestMapping(value = "/{cpf}", method = RequestMethod.GET)
     @ResponseBody
     public Cliente buscarCliente(@PathVariable("cpf") String cpf) {
-        return clienteService.getByCpf(cpf);
+        if(!cpf.isEmpty()){
+            return clienteService.getByCpf(cpf);
+        }
+        return null;
     }
 
     @RequestMapping(method = RequestMethod.GET)
