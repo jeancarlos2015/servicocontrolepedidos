@@ -29,6 +29,7 @@ public class Pedido implements Serializable {
     private Long idproduto= 0L;
     private String descricao;
     private String cpf;
+    private Long idfuncionario=0L;
     public Long getIdpedido() {
         return idpedido;
     }
@@ -92,6 +93,14 @@ public class Pedido implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public Long getIdfuncionario() {
+        return idfuncionario;
+    }
+
+    public void setIdfuncionario(Long idfuncionario) {
+        this.idfuncionario = idfuncionario;
     }
     
 }
