@@ -82,6 +82,17 @@ public class ProdutoController {
         }
         return resultList;
     }
+    @RequestMapping(value="quantidade/{qt}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Produto> listProdutosQuantidade(@PathVariable("qt") Integer qt) {
+        List<Produto> resultList = new ArrayList<>();
+        for(Produto produto:produtoService.listAll()){
+            if(produto.getQuantidade()<=qt){
+                resultList.add(produto);
+            }
+        }
+        return resultList;
+    }
     @RequestMapping(value = "/listar/{nome}",method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
