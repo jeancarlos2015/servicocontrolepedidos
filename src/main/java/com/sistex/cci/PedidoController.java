@@ -74,8 +74,7 @@ public class PedidoController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Pedido> listPedidosDataPedido() {
-        Pedido pedido = fabrica.criaPedido();
-        return pedidoService.findAllByDatapedido(pedido.getDatapedido());
+        return pedidoService.findAllByDataAtual();
     }
     
     @RequestMapping(value = "/listar/id/{idcliente}",method = RequestMethod.GET)

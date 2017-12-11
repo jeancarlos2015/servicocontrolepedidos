@@ -40,13 +40,16 @@ public class PedidoServicoImpl implements PedidoServico {
     public Pedido getById(Long id) {
         return pedidoRepositorio.findOne(id);
     }
-
-    @Override
-    public Pedido save(Pedido pedido) {
+    private String getDataAtual(){
         final DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         final Calendar cal = Calendar.getInstance();
         String datapedido = df.format(cal.getTime());
-        pedido.setDatapedido(datapedido);
+        return datapedido;
+    }
+    @Override
+    public Pedido save(Pedido pedido) {
+        
+        pedido.setDatapedido(getDataAtual());
         return pedidoRepositorio.save(pedido);
 
     }
@@ -67,8 +70,8 @@ public class PedidoServicoImpl implements PedidoServico {
     }
 
     @Override
-    public List<Pedido> findAllByDatapedido(String dataPedido) {
-        return pedidoRepositorio.findAllByDatapedido(dataPedido);
+    public List<Pedido> findAllByDataAtual() {
+        return pedidoRepositorio.findAllByDatapedido(getDataAtual());
     }
 
     @Override

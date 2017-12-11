@@ -93,6 +93,7 @@ public class ProdutoController {
         }
         return resultList;
     }
+    
     @RequestMapping(value = "/listar/{nome}",method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody

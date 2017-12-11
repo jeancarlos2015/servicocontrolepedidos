@@ -25,7 +25,7 @@ public interface PedidoServico {
 
     Pedido update(Pedido pedido);
 
-    List<Pedido> findAllByDatapedido(String datapedido);
+    List<Pedido> findAllByDataAtual();
     
     List<Pedido> findAllByIdCliente(Long idCliente);
     
