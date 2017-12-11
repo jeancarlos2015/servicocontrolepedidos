@@ -70,11 +70,11 @@ public class PedidoController {
         return pedidoService.listAll();
     }
 
-    @RequestMapping(value = "/listaratuais",method = RequestMethod.GET)
+    @RequestMapping(value = "/listaratuais/{status}",method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Pedido> listPedidosDataPedido() {
-        return pedidoService.findAllByDataAtual();
+    public List<Pedido> listPedidosDataPedido(@PathVariable("status") String status) {
+        return pedidoService.findAllByDataAtual(status);
     }
     
     @RequestMapping(value = "/listar/id/{idcliente}",method = RequestMethod.GET)

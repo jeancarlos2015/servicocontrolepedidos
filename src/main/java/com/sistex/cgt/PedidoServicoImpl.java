@@ -70,8 +70,8 @@ public class PedidoServicoImpl implements PedidoServico {
     }
 
     @Override
-    public List<Pedido> findAllByDataAtual() {
-        return pedidoRepositorio.findAllByDatapedido(getDataAtual());
+    public List<Pedido> findAllByDataAtual(String status) {
+        return pedidoRepositorio.findAllByDatapedido(getDataAtual(),status);
     }
 
     @Override

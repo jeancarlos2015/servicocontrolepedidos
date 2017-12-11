@@ -19,8 +19,8 @@ import org.springframework.data.repository.query.Param;
 public interface PedidoRepositorio extends CrudRepository<Pedido, Long>{
   
 
-    @Query("SELECT pedido FROM Pedido pedido WHERE pedido.datapedido like %:datapedido%")
-    List<Pedido> findAllByDatapedido(@Param("datapedido") String datapedido);
+    @Query("SELECT pedido FROM Pedido pedido WHERE pedido.datapedido like %:datapedido% and pedido.status = :status")
+    List<Pedido> findAllByDatapedido(@Param("datapedido") String datapedido, @Param("status") String status);
     
     @Query("SELECT pedido FROM Pedido pedido WHERE pedido.idcliente = :idcliente")
     List<Pedido> findAllByIdCliente(@Param("idcliente") Long idcliente);
