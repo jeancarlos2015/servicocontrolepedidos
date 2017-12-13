@@ -7,6 +7,7 @@ package com.sistex.cci;
 
 import com.sistex.cdp.Pedido;
 import com.sistex.cgt.PedidoServico;
+import com.sistex.cgt.ProdutoServico;
 import com.sistex.util.Fabrica;
 import static com.sistex.util.Tipo.PEDIDO;
 import java.util.List;
@@ -55,6 +56,7 @@ public class PedidoController {
     @ResponseBody
     @CrossOrigin
     public Pedido alterar(@RequestBody Pedido pedido) {
+        
         return pedidoService.update(pedido);
     }
 

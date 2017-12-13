@@ -10,7 +10,7 @@ public abstract class ProdutoAbstract {
 
     protected String nome;
     protected Float preco;
-    protected Integer quantidade;
+    protected Integer quantidade=0;
     protected String descricao;
     private String imageStr;
 

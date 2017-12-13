@@ -6,7 +6,9 @@
 package com.sistex.cgt;
 
 import com.sistex.cdp.Pedido;
+import com.sistex.cdp.Produto;
 import com.sistex.cgd.PedidoRepositorio;
+import com.sistex.cgd.ProdutoRepositorio;
 import com.sistex.util.Fabrica;
 import static com.sistex.util.Tipo.PEDIDO;
 import java.text.DateFormat;
@@ -28,7 +30,8 @@ public class PedidoServicoImpl implements PedidoServico {
     private final Fabrica fabrica = Fabrica.make(PEDIDO);
     @Autowired
     private PedidoRepositorio pedidoRepositorio;
-
+    @Autowired
+    private ProdutoRepositorio produtoRepositorio;
     @Override
     public List<Pedido> listAll() {
         List<Pedido> lista = new ArrayList<>();
@@ -64,6 +67,13 @@ public class PedidoServicoImpl implements PedidoServico {
     @Override
     public Pedido update(Pedido pedido) {
         if (pedidoRepositorio.exists(pedido.getIdpedido())) {
+            if(pedido.getStatus().equals("Entregue")){
+                Produto produto = produtoRepositorio.findOne(pedido.getIdproduto());
+                if(produto.getQuantidade()>0){
+                    produto.setQuantidade(produto.getQuantidade()-1);
+                    produtoRepositorio.save(produto);
+                }
+            }
             return pedidoRepositorio.save(pedido);
         }
         return fabrica.criaPedido();
